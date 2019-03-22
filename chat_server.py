@@ -74,7 +74,7 @@ while True:
     #maintains a list of clients for ease of broadcasting a message to all available people in the chatroom
     #Prints the address of the person who just connected
     start_new_thread(clientthread,(conn,addr, name))
-    #creates and individual thread for every user that connects
+    #spawns a new thread for every user that connects
 
 conn.close()
 server.close()

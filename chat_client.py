@@ -10,13 +10,13 @@ IP_address = str(sys.argv[1])
 Port = int(sys.argv[2])
 name = str(sys.argv[3])
 server.connect((IP_address, Port))
-server.send(name)
+server.send(name) #send name to server
 while True:
     sockets_list = [sys.stdin, server]
     read_sockets,write_socket, error_socket = select.select(sockets_list, [], [])
     for socks in read_sockets:
         if socks == server:
-            message = socks.recv(2048)
+            message = socks.recv(2048) #2048 is buffer size
             print message
         else:
             message = sys.stdin.readline()
